@@ -1,0 +1,27 @@
+/* Search box: no history dropdown while the input is empty (placeholder showing);
+   suggestions come back as soon as you type. Covers the current yt-searchbox and
+   the older ytd-searchbox, whose dropdown (.sbdd_a) is attached to <body>. */
+
+html.myt-on.myt-hideSearchHistory yt-searchbox:has(input:placeholder-shown) :is(
+  .ytSearchboxComponentSuggestionsContainer,
+  [role="listbox"]
+) {
+  display: none !important;
+}
+
+html.myt-on.myt-hideSearchHistory:has(ytd-searchbox input:placeholder-shown) .sbdd_a {
+  display: none !important;
+}
+
+/* Search results: keep the results, drop the shelves wedged between them. */
+
+html.myt-on.myt-hideSearchClutter ytd-search :is(
+  ytd-shelf-renderer,
+  ytd-horizontal-card-list-renderer,
+  ytd-search-refinement-card-renderer,
+  ytd-reel-shelf-renderer,
+  ytd-movie-renderer,
+  ytd-background-promo-renderer
+) {
+  display: none !important;
+}
