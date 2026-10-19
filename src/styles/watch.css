@@ -1,0 +1,31 @@
+/* Watch page. */
+
+html.myt-on.myt-hideWatchClutter :is(
+  ytd-watch-flexy #sponsor-button,
+  ytd-download-button-renderer,
+  ytd-merch-shelf-renderer,
+  ytd-ticket-shelf-renderer,
+  #ticket-shelf,
+  #donation-shelf,
+  ytd-donation-shelf-renderer,
+  #clarify-box,
+  ytd-clarification-renderer,
+  ytd-info-panel-container-renderer,
+  ytd-info-panel-content-renderer,
+  .ytp-paid-content-overlay,
+  .iv-branding
+) {
+  display: none !important;
+}
+
+html.myt-on.myt-hideEndCards :is(.ytp-ce-element, .ytp-endscreen-content, .ytp-pause-overlay) {
+  display: none !important;
+}
+
+html.myt-on.myt-hideRelated :is(ytd-watch-flexy #secondary #related, #watch-page-skeleton #related) {
+  display: none !important;
+}
+
+html.myt-on.myt-hideComments ytd-watch-flexy ytd-comments#comments {
+  display: none !important;
+}
