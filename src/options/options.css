@@ -1,0 +1,25 @@
+.page {
+  max-width: 520px;
+  margin: 48px auto;
+  padding: 0 16px;
+}
+
+.page header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.page .settings section + section {
+  margin-top: 24px;
+}
+
+.page .settings + .text-button {
+  margin-top: 24px;
+}
