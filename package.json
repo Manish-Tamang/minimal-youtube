@@ -1,0 +1,26 @@
+{
+  "name": "minimal-youtube",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A browser extension that strips YouTube down to the videos: no Shorts, mixes, sidebar, or clutter.",
+  "license": "MIT",
+  "author": "Manish Tamang",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Manish-Tamang/minimal-youtube.git"
+  },
+  "homepage": "https://github.com/Manish-Tamang/minimal-youtube#readme",
+  "type": "module",
+  "packageManager": "pnpm@12.8.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build && vite build -c vite.content.config.ts",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.3.4",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}
