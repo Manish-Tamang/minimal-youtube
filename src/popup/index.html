@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minimal YouTube</title>
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <img src="/icons/32.png" alt="" width="20" height="20" />
+        <span>Minimal YouTube</span>
+      </div>
+      <label class="switch large" title="Turn everything on / off">
+        <input type="checkbox" id="enabled" />
+        <span></span>
+      </label>
+    </header>
+
+    <nav class="quick-links" id="quick-links" aria-label="Go to"></nav>
+
+    <main class="settings" id="settings"></main>
+
+    <footer>
+      <h2>Shortcuts</h2>
+      <dl id="shortcuts"></dl>
+      <button class="text-button" id="edit-shortcuts">Change global shortcuts</button>
+    </footer>
+
+    <script type="module" src="./index.ts"></script>
+  </body>
+</html>
