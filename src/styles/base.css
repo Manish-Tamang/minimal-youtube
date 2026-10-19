@@ -1,0 +1,88 @@
+/*
+ * Every rule is gated on html.myt-on (master switch) plus a class per setting,
+ * so toggling a setting only adds/removes a class on <html>.
+ *
+ * YouTube renames elements now and then. When something reappears, right-click
+ * it → Inspect, find its ytd-* / yt-* tag, and add it to the matching file.
+ */
+
+/* ── Sidebar ── */
+
+html.myt-on.myt-hideSidebar ytd-app {
+  --ytd-persistent-guide-width: 0px !important;
+  --ytd-mini-guide-width: 0px !important;
+}
+
+/* #guide-skeleton is the placeholder sidebar YouTube draws while the page loads. */
+html.myt-on.myt-hideSidebar :is(
+  tp-yt-app-drawer#guide,
+  ytd-mini-guide-renderer,
+  ytd-masthead #guide-button,
+  #guide-skeleton
+) {
+  display: none !important;
+}
+
+html.myt-on.myt-hideSidebar ytd-page-manager {
+  margin-left: 0 !important;
+}
+
+/* ── Masthead ── */
+
+html.myt-on.myt-hideVoiceSearch #voice-search-button {
+  display: none !important;
+}
+
+/* The Create button is the masthead's only ytd-button-renderer when signed in
+   (signed out, the "Sign in" button is one too, so it's excluded). */
+html.myt-on.myt-hideCreateButton :is(
+  ytd-topbar-menu-button-renderer:has(button[aria-label="Create"]),
+  ytd-masthead #buttons > ytd-button-renderer:not(:has(a[href*="accounts.google.com"]))
+) {
+  display: none !important;
+}
+
+html.myt-on.myt-hideNotificationBell ytd-notification-topbar-button-renderer {
+  display: none !important;
+}
+
+/* Loading placeholders for the masthead buttons, in order: Create, bell, avatar. */
+html.myt-on.myt-hideCreateButton #masthead-skeleton-icons .masthead-skeleton-icon:nth-child(1),
+html.myt-on.myt-hideNotificationBell #masthead-skeleton-icons .masthead-skeleton-icon:nth-child(2) {
+  display: none !important;
+}
+
+/* ── Cleaner layout ── */
+
+html.myt-on.myt-cleanerLayout ytd-masthead #country-code {
+  display: none !important;
+}
+
+/* When the sidebar is shown, keep only the first sections (Home/Subs, You, channels):
+   drops Explore, More from YouTube, settings links and the footer. */
+html.myt-on.myt-cleanerLayout ytd-guide-renderer :is(#footer, ytd-guide-section-renderer:nth-child(n + 4)) {
+  display: none !important;
+}
+
+/* ── Toast (shortcut feedback) ── */
+
+#myt-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  z-index: 9999;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(15, 15, 15, 0.92);
+  color: #f1f1f1;
+  font: 500 13px/1.4 Roboto, system-ui, sans-serif;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 8px);
+  transition: opacity 0.18s, transform 0.18s;
+}
+
+#myt-toast.myt-show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
